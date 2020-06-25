@@ -1,0 +1,44 @@
+<h2 class="fs-m text-center">Instructions</h2>
+<hr>
+<ul class="list-group">
+    <li class="list-group-item border-0 p-0">
+        <fa-icon [icon]="faChevronRight">
+        </fa-icon>&nbsp;Write the verb forms:
+        <div class="text-center pt-3">
+            <p class="text-muted mb-0"><span class="handwritten font-weight-bold">laufen</span></p>
+            <table class="table text-muted">
+                <tbody>
+                    <tr>
+                        <td class="p-0 border-0 text-left">Präsens - er/sie/es</td>
+                        <td class="p-0 border-0"><span class="handwritten font-weight-bold">*läuft</span></td>
+                    </tr>
+                    <tr>
+                        <td class="p-0 text-left">Präteritum - ich</td>
+                        <td class="p-0"><span class="handwritten font-weight-bold">lief</span></td>
+                    </tr>
+                    <tr>
+                        <td class="p-0 text-left">Perfekt - ich</td>
+                        <td class="p-0"><span class="handwritten font-weight-bold">bin gelaufen</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <p class="pt-0 text-muted small">*Automatic conversion from ae to ä, oe to ö, ue to ü and ss to ß.</p>
+    <li class="list-group-item border-0 p-0 pb-3">
+        <fa-icon [icon]="faChevronRight">
+        </fa-icon>&nbsp;Click <span class="handwritten t-dark font-weight-bold"> Check!</span> to check your answers.
+    </li>
+    <li class="list-group-item border-0 p-0 pb-3">
+        <fa-icon [icon]="faChevronRight">
+        </fa-icon>&nbsp;After 3 attempts, if its available, you can click <span class="t-dark font-weight-bold"> ...</span> to see a tip. Or click <span class="handwritten t-dark font-weight-bold"> Solve!</span> to view the solution.
+    </li>
+</ul>
+<div class="text-center">
+    <button mat-stroked-button
+        type="button"
+        (click)="closeDialog()"
+        class="pt-1 pr-3 pl-3 b-light font-weight-bold no-outline border-dark border-round handwritten">
+  Got it!
+  </button>
+</div>

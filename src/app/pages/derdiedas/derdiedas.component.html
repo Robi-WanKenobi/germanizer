@@ -1,0 +1,14 @@
+<div class="row no-gutters justify-content-center animated fadeIn slow">
+    <fa-icon *ngIf="loading"
+        [icon]="faSpinner"
+        class="animated fadeIn"
+        [spin]="true"
+        [size]="'3x'"
+        class="mt-5">
+    </fa-icon>
+    <div *ngIf="!loading"
+        class="p-4">
+        <app-noun-practice [noun]="noun"
+            (nextNoun)="nextNoun($event)"></app-noun-practice>
+    </div>
+</div>

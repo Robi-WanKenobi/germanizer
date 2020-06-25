@@ -1,0 +1,76 @@
+<div class="animated fadeIn">
+    <form autocomplete="off"
+        [formGroup]="contactForm"
+        (ngSubmit)="send()">
+        <mat-form-field class="w-100 pt-1">
+            <mat-label>To</mat-label>
+            <input matInput
+                formControlName="to"
+                value="Roberto Arranz Trullols">
+            <img matSuffix
+                src="../../../assets/dev-face.jpg"
+                alt="Roberto Arranz Trullols"
+                width="40px"
+                height="40px"
+                class="img-thumbnail p-0 mb-1 animated fadeInDown slow">
+        </mat-form-field>
+        <mat-form-field class="w-100 pt-1">
+            <mat-label>From</mat-label>
+            <input matInput
+                placeholder="Your email"
+                formControlName="from">
+            <mat-error *ngIf="invalidEmail">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-40 pr-1 pt-1">
+            <mat-label>Name</mat-label>
+            <input matInput
+                placeholder="Your name"
+                formControlName="name">
+            <mat-error *ngIf="invalidName">
+                Please enter your name
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-60 pl-1 pt-1">
+            <mat-label>Subject</mat-label>
+            <input matInput
+                formControlName="subject"
+                placeholder="Report a bug or just say hello!">
+            <mat-error *ngIf="invalidEmail">
+                Please enter a subject
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 pt-1 pb-1">
+            <mat-label>Body</mat-label>
+            <textarea matInput
+                formControlName="body"
+                rows="5"
+                placeholder="Hello Roberto..."></textarea>
+            <mat-error *ngIf="invalidEmail">
+                Please write something
+            </mat-error>
+        </mat-form-field>
+        <button mat-stroked-button
+            [disabled]="loading"
+            type="submit"
+            ngClass="[{'hoverable': !loading}]"
+            class="float-right no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn fast">
+        <fa-icon *ngIf="loading" class="t-dark"
+            [icon]="spinner"
+            [spin]="true"></fa-icon>
+        <span *ngIf="!loading">
+            Send!
+        </span>
+    </button>
+        <button *ngIf="!loading"
+            mat-stroked-button
+            type="button"
+            (click)="closeDialog()"
+            class="float-left no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn fast">
+        <span *ngIf="!loading">
+            Close
+        </span>
+    </button>
+    </form>
+</div>

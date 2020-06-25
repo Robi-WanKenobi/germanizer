@@ -1,0 +1,46 @@
+<div class="card handwritten border-0 mt-5 b-transparent t-dark animated fadeIn slow">
+    <div class="card-body border-0 mt-5 pb-2 fs-m text-center">
+        <h2 class="font-weight-bold a-hoverable">
+            {{answer}}
+            <span matTooltip="{{noun.translation}}"
+                matTooltipPosition="above">
+            {{noun.noun}}
+            </span>
+        </h2>
+    </div>
+</div>
+
+<div class="row no-gutters p-2 b-white justify-content-center footer t-dark aminated fadeIn fast">
+    <div *ngIf="!next"
+        class="col text-center">
+        <button mat-stroked-button
+            type="button"
+            (click)="check('Der')"
+            class="fs-m mr-2 b-light hoverable no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn slow">
+        Der
+        </button>
+        <button mat-stroked-button
+            type="button"
+            (click)="check('Die')"
+            class="fs-m b-light hoverable no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn slow">
+        Die
+        </button>
+        <button mat-stroked-button
+            type="button"
+            (click)="check('Das')"
+            class="fs-m b-light ml-2 hoverable no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn slow">
+        Das
+        </button>
+    </div>
+    <div [hidden]="!next"
+        class="col text-right animated fadeIn">
+        <button mat-stroked-button
+            type="button"
+            (click)="toNext()"
+            #nextButton="matButton"
+            [autofocus]="nextButton.focus()"
+            class="fs-m b-light float-right hoverable no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn slow">
+                Next!
+            </button>
+    </div>
+</div>

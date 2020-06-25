@@ -1,0 +1,77 @@
+<div class="row no-gutters hero-margin justify-content-center">
+    <div class="col-sm-12 p-1 mb-3">
+        <h1 class="text-center fs-m handwritten font-weight-bold">
+            Select a level!
+        </h1>
+    </div>
+    <div class="col-sm-3 p-1 animated fadeIn slower">
+        <button mat-stroked-button
+            type="button"
+            (click)="setLevel(1)"
+            class="w-100 no-outline border-dark border-round pt-1 handwritten font-weight-bold fs-m aminated fadeIn fast"
+            [ngClass]="{'b-light t-dark': value !== 1,
+                            'b-dark t-light': value === 1}">
+            Beginner
+            </button>
+    </div>
+    <div class="col-sm-3 p-1 animated fadeIn slower">
+        <button mat-stroked-button
+            type="button"
+            (click)="setLevel(2)"
+            class="w-100 no-outline border-dark border-round pt-1 handwritten font-weight-bold fs-m aminated fadeIn fast"
+            [ngClass]="{'b-light t-dark': value !== 2,
+                            'b-dark t-light': value === 2}">
+            Intermediate
+            </button>
+    </div>
+    <div class="col-sm-3 p-1 animated fadeIn slower">
+        <button mat-stroked-button
+            type="button"
+            (click)="setLevel(3)"
+            class="w-100 no-outline border-dark border-round pt-1 handwritten font-weight-bold fs-m aminated fadeIn fast"
+            [ngClass]="{'b-light t-dark': value !== 3,
+                            'b-dark t-light': value === 3}">
+            Advanced
+            </button>
+    </div>
+    <div class="col-sm-3 p-1 animated fadeIn slower">
+        <button mat-stroked-button
+            type="button"
+            (click)="setLevel(4)"
+            class="w-100 no-outline border-dark border-round pt-1 handwritten font-weight-bold fs-m aminated fadeIn fast"
+            [ngClass]="{'b-light t-dark': value !== 4,
+                            'b-dark t-light': value === 4}">
+            Expert
+            </button>
+    </div>
+    <div class="fs-m handwritten font-weight-bold mt-4">
+        <div class="col-md-12 animated fadeIn slower">
+            <p class="pl-3 pr-3 text-center">
+                <span *ngIf="value === 1"
+                    class="animated fadeIn slower">
+                    Mix of regular and irregular verbs, all are common.
+                </span>
+                <span *ngIf="value === 2"
+                    class="animated fadeIn slower">
+                    Mix of regular and irregular verbs, all are common. Irregular verbs are more likely to appear.
+                </span>
+                <span *ngIf="value === 3"
+                    class="animated fadeIn slower">
+                    Mix of regular and irregular verbs. Uncommon verbs could appear.
+                </span>
+                <span *ngIf="value === 4"
+                    class="animated fadeIn slower">
+                    Mix of regular and irregular verbs. Uncommon verbs appear more frequently.
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-12 text-center mt-3">
+        <button mat-stroked-button
+            type="button"
+            (click)="start()"
+            class="hoverable no-outline b-light border-dark border-round pt-1 handwritten font-weight-bold fs-m aminated fadeIn fast">
+                Start!
+            </button>
+    </div>
+</div>

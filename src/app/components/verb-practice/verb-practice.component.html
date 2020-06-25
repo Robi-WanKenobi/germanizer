@@ -1,0 +1,100 @@
+<form autocomplete="off"
+    [formGroup]="verbForm"
+    (ngSubmit)="check()">
+    <div class="card handwritten mt-3 b-transparent t-dark border-0 fs-m animated fadeIn">
+        <div class="text-center b-transparent border-0 font-weight-bold">
+            <h2 class="font-weight-bold">
+                <a class="a-hoverable animated fadeInDown slow"
+                    (click)="toTranslation()">
+                    <span matTooltip="Open translation"
+                        matTooltipPosition="above">
+                    {{verb?.infinitiv}}
+                    </span>
+                </a>
+                <a *ngIf="result.attempts >= 3 && !showingTip && (!verb.isRegular || verb.isTrennbar)"
+                    (click)="toggleTip()"
+                    class="a-hoverable animated fadeIn slow">
+                    ...
+                </a>
+                <span *ngIf="showingTip"
+                    (click)="toggleTip()"
+                    class="a-hoverable animated fadeIn slow">
+                    <span *ngIf="verb.isTrennbar && verb.isRegular">
+                        ist trennbar
+                    </span>
+                <span *ngIf="!verb.isRegular && !verb.isTrennbar">
+                        ist irregular
+                    </span>
+                <span *ngIf="!verb.isRegular && verb.isTrennbar">
+                        ist irregular und trennbar
+                    </span>
+                </span>
+            </h2>
+        </div>
+
+        <div class="card-body text-center pt-2 pb-2 responsive-fs">
+            <mat-form-field class="t-dark handwritten w-100">
+                <mat-label>Präsens</mat-label>
+                <span matPrefix>er/sie/es &nbsp;</span>
+                <input matInput
+                    spellcheck="false"
+                    [ngClass]="result?.presentThirdResult?.class"
+                    formControlName="present_third">
+            </mat-form-field>
+            <mat-form-field class="t-dark handwritten w-100">
+                <mat-label>Präteritum</mat-label>
+                <span matPrefix>ich &nbsp;</span>
+                <input matInput
+                    spellcheck="false"
+                    [ngClass]="result?.preteritumFirstResult?.class"
+                    formControlName="preteritum_first">
+            </mat-form-field>
+            <mat-form-field class="t-dark handwritten w-100">
+                <mat-label>Perfekt</mat-label>
+                <span matPrefix>ich &nbsp;</span>
+                <input matInput
+                    spellcheck="false"
+                    [ngClass]="result?.perfectFirstResult?.class"
+                    formControlName="perfect_first">
+                <mat-hint *ngIf="checkPerfect"
+                    align="start">Auxiliary verb?</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row no-gutters p-2 b-white justify-content-between footer t-dark animated fadeIn">
+        <div class="col w-33 text-left">
+            <span (click)="toSelectLevel()"
+                class="a-hoverable badge responsive-fs b-transparent t-dark border-0 pt-1 font-weight-bold handwritten level-label">
+                <fa-icon [icon]="faChevronLeft">
+                </fa-icon>&nbsp;{{levelLabel}}
+            </span>
+        </div>
+        <div class="col w-33 text-center">
+            <button *ngIf="result.attempts >= 3 && !result.next"
+                mat-stroked-button
+                type="button"
+                (click)="help()"
+                class="hoverable b-light fs-m no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn">
+        Solve!
+        </button>
+        </div>
+        <div class="col w-33 text-right animated fadeInLeft">
+            <button *ngIf="!result.next"
+                mat-stroked-button
+                type="submit"
+                class="hoverable b-light fs-m no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn fast">
+        Check!
+        </button>
+            <button [hidden]="!result.next"
+                mat-stroked-button
+                type="button"
+                (click)="next()"
+                #nextButton="matButton"
+                [autofocus]="nextButton.focus()"
+                class="hoverable b-light fs-m no-outline border-dark border-round pt-1 handwritten font-weight-bold aminated fadeIn">
+        Next!
+        </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,19 @@
+<div class="card border-dark">
+    <div class="card-body">
+        <h1 class="card-title font-weight-bold">
+            {{title}}
+            <div *ngIf="hasInfo"
+                class="float-right a-hoverable"
+                (click)="openInstructions()">
+                <fa-icon [icon]="faInfoCircle"></fa-icon>
+            </div>
+        </h1>
+        <p class="card-text responsive-fs">{{description}}</p>
+        <button mat-stroked-button
+            type="button"
+            (click)="goTo()"
+            class="float-right hoverable b-light fs-m no-outline border-dark border-round pt-1 pr-3 pl-3 handwritten font-weight-bold">
+            Play!
+        </button>
+    </div>
+</div>
